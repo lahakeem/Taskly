@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Taskly</title>
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Internal CSS -->
+  <style>
+    .mission-card {
+      background: linear-gradient(to right, #EADCBF, #FAF5EA);
+      border-left: 5px solid #C98F91;
+      padding: 1.25rem 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header and navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-badge" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Notebook -->
+            <rect x="7" y="3.5" width="18" height="25" rx="2.5" fill="#FAF5EA" stroke="#686B4B" stroke-width="1.8"/>
+            <!-- Spiral rings -->
+            <rect x="4.5" y="6.5" width="4" height="2" rx="1" fill="#69554B"/>
+            <rect x="4.5" y="11.5" width="4" height="2" rx="1" fill="#69554B"/>
+            <rect x="4.5" y="16.5" width="4" height="2" rx="1" fill="#69554B"/>
+            <rect x="4.5" y="21.5" width="4" height="2" rx="1" fill="#69554B"/>
+            <!-- Checklist -->
+            <path d="M10.5 9.5L12 11L15 8" stroke="#686B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="17" y1="9.5" x2="21" y2="9.5" stroke="#9A8174" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M10.5 15.5L12 17L15 14" stroke="#686B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="17" y1="15.5" x2="21" y2="15.5" stroke="#9A8174" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10.5" y1="21.5" x2="20" y2="21.5" stroke="#D5C6B1" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Pen -->
+            <path d="M25.5 8.5L27 10L20.5 22.5L18 23L18.5 20.5L25.5 8.5Z" fill="#69554B" stroke="#392F2C" stroke-width="1" stroke-linejoin="round"/>
+            <path d="M24.5 9.5L26 11" stroke="#686B4B" stroke-width="1.2"/>
+          </svg>
+        </span>
+        <span class="brand-name">Taskly</span>
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="signup.html" class="nav-link">Sign Up</a></li>
+          <li><a href="about.html" class="nav-link active">About Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- About Taskly -->
+      <section class="section">
+        <h1 class="section-title">About Taskly</h1>
+        <p class="section-subtitle">
+          A simple web platform created to help university students manage their academic workload, track deadlines, and organize study schedules.
+        </p>
+
+        <!-- Mission -->
+        <div class="mission-card">
+          <h2 style="color: #392F2C; font-size: 1.25rem; margin-bottom: 0.5rem;">🎯 Why It Was Created</h2>
+          <p style="color: #69554B; font-size: 0.98rem; line-height: 1.6;">
+            Taskly was created to solve common challenges like forgotten assignment due dates, overlapping exam schedules, and disorganized study notes across multiple subjects.
+          </p>
+        </div>
+      </section>
+
+      <!-- Image map -->
+      <section class="section">
+        <h2 class="section-title">Explore Taskly</h2>
+        <p class="section-subtitle">Click the books, notebook, or lock to explore Taskly.</p>
+        <div class="map-card">
+          <div class="map-image-frame">
+            <img src="images/simple_workspace_map_600.jpg"
+                 width="600" height="403"
+                 usemap="#about-map"
+                 alt="Books link to benefits, notebook links to task registry, and lock links to login"
+                 class="map-image" />
+            <map name="about-map" id="about-map">
+              <area shape="rect" coords="38,135,203,267" href="index.html#benefits" alt="Books: Main Benefits" title="Main Benefits" />
+              <area shape="rect" coords="238,135,442,274" href="index.html#tasks" alt="Notebook: Task Registry" title="Task Registry" />
+              <area shape="rect" coords="466,134,564,267" href="login.html" alt="Lock: Login" title="Login" />
+            </map>
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits -->
+      <section class="section">
+        <div class="grid-2">
+          
+          <article class="card card-feature">
+            <h3 class="card-title">📖 How It Helps University Students</h3>
+            <p class="card-text">
+              By keeping all your subjects, homework assignments, lab reports, and exam dates in one organized dashboard, you can prioritize urgent tasks and stay on top of your semester.
+            </p>
+            <p class="card-text" style="margin-top: 0.75rem;">
+              Clear deadline tracking ensures you never experience last-minute panic or missed submission windows.
+            </p>
+          </article>
+
+          <article class="card card-feature">
+            <h3 class="card-title">🎓 Main Benefits</h3>
+            <p class="card-text">
+              Key advantages of using Student Task Organizer:
+            </p>
+            <ul class="custom-unordered-list">
+              <li><strong>Reduced Stress:</strong> Stay informed on upcoming due dates well ahead of time.</li>
+              <li><strong>Clear Priorities:</strong> Direct effort toward high-weight midterm exams and lab reports.</li>
+              <li><strong>Better Study Habits:</strong> Build disciplined weekly schedules across all enrolled subjects.</li>
+              <li><strong>Simple & Fast:</strong> Access your courses and task planner in seconds.</li>
+            </ul>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Taskly</h3>
+        <p class="footer-tagline">Plan smarter. Study better. Stay organized.</p>
+      </div>
+
+      <ul class="footer-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+
+      <div class="footer-copy">
+        <p>&copy; 2026 Taskly. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
