@@ -7,7 +7,10 @@
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
-  
+
+  <!-- External JavaScript -->
+  <script src="script.js" defer></script>
+
   <!-- Internal CSS -->
   <style>
     .signup-banner {
@@ -65,7 +68,10 @@
     <section class="auth-wrapper">
       <article class="form-card" style="max-width: 480px;">
         <!-- Page image -->
-        <img src="images/create_account.svg" alt="Create account profile with plus sign illustration" class="auth-page-image">
+        <img src="images/create_account.svg" alt="Create account profile with plus sign illustration" class="auth-page-image" usemap="#about-map">
+        <map name="about-map" id="about-map">
+          <area shape="default" href="about.html" alt="Learn more about Taskly on the About Us page" title="Click to learn more about Taskly" />
+        </map>
         
         
         <div class="form-header">
@@ -79,66 +85,81 @@
         </div>
 
         <!-- Signup form -->
-        <form action="#" method="post">
-          
+        <form id="signup-form" action="#" method="post" onsubmit="return validateSignup()" novalidate>
+
           <div class="form-group">
             <label for="fullname" class="form-label">Full Name</label>
-            <input 
-              type="text" 
-              id="fullname" 
-              name="fullname" 
-              class="form-input" 
-              placeholder="e.g. Reema Ahmed" 
-              required 
+            <input
+              type="text"
+              id="fullname"
+              name="fullname"
+              class="form-input"
+              placeholder="e.g. Reema Ahmed"
+              autocomplete="name"
+              aria-describedby="fullname-error"
+              required
             />
+            <small id="fullname-error" class="field-error" role="alert"></small>
           </div>
 
           <div class="form-group">
             <label for="studentid" class="form-label">Student ID</label>
-            <input 
-              type="text" 
-              id="studentid" 
-              name="studentid" 
-              class="form-input" 
-              placeholder="e.g. 202612345" 
-              required 
+            <input
+              type="text"
+              id="studentid"
+              name="studentid"
+              class="form-input"
+              placeholder="e.g. 202612345"
+              inputmode="numeric"
+              aria-describedby="studentid-error"
+              required
             />
+            <small id="studentid-error" class="field-error" role="alert"></small>
           </div>
 
           <div class="form-group">
             <label for="email" class="form-label">University Email</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              class="form-input" 
-              placeholder="e.g. reema.ahmed@university.edu" 
-              required 
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="e.g. reema.ahmed@university.edu"
+              autocomplete="email"
+              aria-describedby="email-error"
+              required
             />
+            <small id="email-error" class="field-error" role="alert"></small>
           </div>
 
           <div class="form-group">
             <label for="signup-password" class="form-label">Password</label>
-            <input 
-              type="password" 
-              id="signup-password" 
-              name="password" 
-              class="form-input" 
-              placeholder="Minimum 8 characters" 
-              required 
+            <input
+              type="password"
+              id="signup-password"
+              name="password"
+              class="form-input"
+              placeholder="Minimum 8 characters"
+              autocomplete="new-password"
+              aria-describedby="signup-password-error"
+              required
             />
+            <small id="signup-password-error" class="field-error" role="alert"></small>
           </div>
 
           <div class="form-group">
             <label for="confirm-password" class="form-label">Confirm Password</label>
-            <input 
-              type="password" 
-              id="confirm-password" 
-              name="confirmpassword" 
-              class="form-input" 
-              placeholder="Re-enter password" 
-              required 
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirmpassword"
+              class="form-input"
+              placeholder="Re-enter password"
+              autocomplete="new-password"
+              aria-describedby="confirm-password-error"
+              required
             />
+            <small id="confirm-password-error" class="field-error" role="alert"></small>
           </div>
 
           <!-- Submit button -->

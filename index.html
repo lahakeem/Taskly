@@ -7,7 +7,10 @@
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
-  
+
+  <!-- External JavaScript -->
+  <script src="script.js" defer></script>
+
   <!-- Internal CSS -->
   <style>
     .welcome-banner {
@@ -24,7 +27,7 @@
 <body>
 
   <!-- Notice -->
-  <div class="welcome-banner">
+  <div class="welcome-banner" id="welcome">
     ✨ Welcome to Taskly — Your Personal Academic Study Planner
   </div>
 
@@ -93,16 +96,31 @@
             <a href="signup.html" class="btn btn-primary">Get Started Free</a>
             <a href="#tasks" class="btn btn-secondary">View Sample Planner</a>
           </div>
+          <p id="hero-tip" class="hero-tip" aria-live="polite">Your study workspace: planner, laptop and notes in one place.</p>
         </div>
 
-        <div class="hero-image-wrapper">
-          <!-- Inline CSS -->
-          <img 
-            src="images/student_workspace.jpg" 
-            alt="Student Study Workspace with Planner and Laptop Illustration" 
-            class="responsive-img"
-            style="border: 2px solid #D5C6B1; border-radius: 18px; box-shadow: 0 12px 32px rgba(57, 47, 44, 0.08); background-color: #FAF5EA; padding: 6px; width: 100%; height: auto; display: block; object-fit: cover;" 
-          />
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <!-- Inline CSS + image map: clicking the picture opens the About Us page -->
+            <img
+              id="hero-image"
+              src="images/student_workspace.jpg"
+              alt="Student Study Workspace with Planner and Laptop Illustration"
+              class="responsive-img"
+              usemap="#home-map"
+              style="border: 2px solid #D5C6B1; border-radius: 18px; box-shadow: 0 12px 32px rgba(57, 47, 44, 0.08); background-color: #FAF5EA; padding: 6px; width: 100%; height: auto; display: block; object-fit: cover;"
+            />
+            <map name="home-map" id="home-map">
+              <area shape="default" href="about.html" alt="Learn more about Taskly on the About Us page" title="Click to learn more about Taskly" />
+            </map>
+          </div>
+
+          <!-- Dynamic picture buttons (script.js) -->
+          <div class="hero-switcher">
+            <button type="button" id="thumb1" class="hero-thumb" style="background-color: #263E35; color: #FFFFFF; border-color: #263E35;" onclick="changePicture(this, 'images/student_workspace.jpg', 'Student Study Workspace with Planner and Laptop Illustration', 'Your study workspace: planner, laptop and notes in one place.')">Workspace</button>
+            <button type="button" id="thumb2" class="hero-thumb" onclick="changePicture(this, 'images/academic_dashboard.jpg', 'Academic dashboard showing courses and upcoming deadlines', 'Your dashboard: courses and upcoming deadlines at a glance.')">Dashboard</button>
+            <button type="button" id="thumb3" class="hero-thumb" onclick="changePicture(this, 'images/simple_workspace_navigation.jpg', 'Simple workspace illustration showing how to navigate Taskly', 'Simple navigation: move between your pages in one click.')">Navigation</button>
+          </div>
         </div>
       </section>
 
@@ -180,7 +198,7 @@
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="task-body">
               <tr>
                 <td>#TSK-101</td>
                 <td>Web Development Lab 3</td>
@@ -224,6 +242,37 @@
             </tbody>
           </table>
         </div>
+
+        <!-- Add a task (script.js) -->
+        <form id="add-task-form" class="add-task-card" onsubmit="return addTask()" novalidate>
+          <h3 class="card-title">➕ Add a Task to the Sample Planner</h3>
+          <div class="add-task-grid">
+            <div class="form-group">
+              <label for="new-task-name" class="form-label">Task name</label>
+              <input type="text" id="new-task-name" class="form-input" placeholder="e.g. Database Quiz Review" aria-describedby="new-task-name-error" />
+              <small id="new-task-name-error" class="field-error" role="alert"></small>
+            </div>
+            <div class="form-group">
+              <label for="new-task-course" class="form-label">Course</label>
+              <input type="text" id="new-task-course" class="form-input" placeholder="e.g. CPIS358 Web Programming" aria-describedby="new-task-course-error" />
+              <small id="new-task-course-error" class="field-error" role="alert"></small>
+            </div>
+            <div class="form-group">
+              <label for="new-task-date" class="form-label">Due date</label>
+              <input type="date" id="new-task-date" class="form-input" aria-describedby="new-task-date-error" />
+              <small id="new-task-date-error" class="field-error" role="alert"></small>
+            </div>
+            <div class="form-group">
+              <label for="new-task-priority" class="form-label">Priority</label>
+              <select id="new-task-priority" class="form-input">
+                <option value="High">High</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Task</button>
+        </form>
       </section>
 
       <!-- How it works -->
@@ -271,6 +320,23 @@
       </div>
     </div>
   </footer>
+
+  <!-- Embedded JavaScript: welcome banner that depends on the time of day -->
+  <script>
+    var hour = new Date().getHours();
+    var greeting;
+
+    if (hour < 12) {
+      greeting = "Good morning";
+    } else if (hour < 18) {
+      greeting = "Good afternoon";
+    } else {
+      greeting = "Good evening";
+    }
+
+    document.getElementById("welcome").innerHTML =
+      "\u2728 " + greeting + " \u2014 welcome to Taskly, your personal academic study planner";
+  </script>
 
 </body>
 </html>

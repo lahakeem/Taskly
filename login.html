@@ -7,7 +7,10 @@
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
-  
+
+  <!-- External JavaScript -->
+  <script src="script.js" defer></script>
+
   <!-- Internal CSS -->
   <style>
     .login-banner {
@@ -65,7 +68,10 @@
     <section class="auth-wrapper">
       <article class="form-card">
         <!-- Page image -->
-        <img src="images/login_account.svg" alt="Secure login lock illustration" class="auth-page-image">
+        <img src="images/login_account.svg" alt="Secure login lock illustration" class="auth-page-image" usemap="#about-map">
+        <map name="about-map" id="about-map">
+          <area shape="default" href="about.html" alt="Learn more about Taskly on the About Us page" title="Click to learn more about Taskly" />
+        </map>
         
         
         <div class="form-header">
@@ -79,30 +85,36 @@
         </div>
 
         <!-- Login form -->
-        <form action="#" method="post">
-          
+        <form id="login-form" action="#" method="post" onsubmit="return validateLogin()" novalidate>
+
           <div class="form-group">
             <label for="username" class="form-label">University Email or Username</label>
-            <input 
-              type="text" 
-              id="username" 
-              name="username" 
-              class="form-input" 
-              placeholder="e.g. reema.ahmed@university.edu" 
-              required 
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form-input"
+              placeholder="e.g. reema.ahmed@university.edu"
+              autocomplete="username"
+              aria-describedby="username-error"
+              required
             />
+            <small id="username-error" class="field-error" role="alert"></small>
           </div>
 
           <div class="form-group">
             <label for="password" class="form-label">Password</label>
-            <input 
-              type="password" 
-              id="password" 
-              name="password" 
-              class="form-input" 
-              placeholder="••••••••" 
-              required 
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-input"
+              placeholder="••••••••"
+              autocomplete="current-password"
+              aria-describedby="password-error"
+              required
             />
+            <small id="password-error" class="field-error" role="alert"></small>
           </div>
 
           <!-- Submit button -->

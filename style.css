@@ -859,3 +859,91 @@ html { scroll-padding-top: 105px; }
   border-radius: 12px;
   margin-bottom: 16px;
 }
+
+/* ==========================================================================
+   SCRIPT-DRIVEN ELEMENTS (used by script.js)
+   ========================================================================== */
+
+/* Hero picture switcher, image map and tip line */
+.hero-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.hero-image-wrapper .responsive-img {
+  aspect-ratio: 1200 / 896;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.18s ease;
+}
+
+.hero-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.hero-thumb {
+  background-color: var(--surface-white);
+  color: var(--heading-dark);
+  border: 1.5px solid var(--border-light);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hero-thumb:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--dusty-rose);
+}
+
+.hero-thumb.active {
+  background-color: var(--forest-green);
+  border-color: var(--forest-green);
+  color: var(--surface-white);
+}
+
+.hero-tip {
+  margin-top: 1.5rem;
+  min-height: 3.2em;
+  padding: 0.7rem 1rem;
+  background-color: var(--bg-secondary);
+  border-left: 4px solid var(--dusty-rose);
+  border-radius: var(--radius-sm);
+  color: var(--heading-dark);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Add-task card */
+.add-task-card {
+  margin-top: 1.75rem;
+  padding: 1.75rem;
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-top: 4px solid var(--sage-green);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.add-task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0 1.25rem;
+  margin-top: 1rem;
+}
+
+/* Form error message */
+.field-error {
+  display: block;
+  min-height: 1.1em;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--vintage-rose);
+}
